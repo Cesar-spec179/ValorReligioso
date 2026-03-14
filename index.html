@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valor Religioso — Éxodo Lolek</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Nunito:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --azul: #3B5FA0;
+            --azul-claro: #6B8FD4;
+            --azul-oscuro: #1A2F5E;
+            --dorado: #D4A843;
+            --dorado-claro: #F0CC78;
+            --crema: #FAF8F3;
+            --crema-dark: #EDE8DC;
+            --texto: #2C2C2C;
+            --texto-suave: #6B6B6B;
+            --blanco: #FFFFFF;
+            --verde-fe: #4A7C59;
+            --rojo-fuego: #C0392B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--crema);
+            color: var(--texto);
+            overflow-x: hidden;
+        }
+
+        /* LOGO EXODO MOVIMIENTO - esquina fija */
+        .logo-exodo-fijo {
+            position: fixed;
+            top: 16px;
+            left: 16px;
+            width: 54px;
+            height: 54px;
+            z-index: 1000;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.25));
+            transition: transform 0.2s;
+        }
+
+        .logo-exodo-fijo:hover {
+            transform: scale(1.1);
+        }
+
+        .logo-exodo-fijo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 64px;
+            background: rgba(26, 47, 94, 0.97);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 24px;
+            z-index: 999;
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            padding: 6px 12px;
+            border-radius: 20px;
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--dorado-claro);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(160deg, var(--azul-oscuro) 0%, #243870 50%, var(--azul) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 24px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 40%, rgba(212, 168, 67, 0.12) 0%, transparent 55%),
+                radial-gradient(ellipse at 80% 60%, rgba(107, 143, 212, 0.15) 0%, transparent 50%);
+        }
+
+        .hero-lolek {
+            position: relative;
+            margin-bottom: 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-lolek img {
+            width: 160px;
+            height: auto;
+            filter: drop-shadow(0 6px 24px rgba(0, 0, 0, 0.4));
+            animation: flotar 4s ease-in-out infinite;
+        }
+
+        @keyframes flotar {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .hero-badge {
+            display: inline-block;
+            border: 1px solid rgba(212, 168, 67, 0.5);
+            color: var(--dorado-claro);
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            padding: 5px 16px;
+            border-radius: 20px;
+            margin-bottom: 18px;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(2.2rem, 6vw, 4rem);
+            font-weight: 700;
+            color: var(--blanco);
+            position: relative;
+            line-height: 1.15;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: var(--dorado);
+        }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 540px;
+            margin: 0 auto 36px;
+            font-weight: 300;
+            line-height: 1.7;
+            position: relative;
+        }
+
+        .hero-linea {
+            width: 48px;
+            height: 2px;
+            background: var(--dorado);
+            margin: 0 auto 32px;
+            position: relative;
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 28px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: pulso 2s ease-in-out infinite;
+        }
+
+        .scroll-hint::after {
+            content: '';
+            display: block;
+            width: 1px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        @keyframes pulso {
+
+            0%,
+            100% {
+                opacity: 0.4
+            }
+
+            50% {
+                opacity: 0.9
+            }
+        }
+
+        /* MAIN */
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 24px 100px;
+        }
+
+        /* SECCIONES */
+        .seccion {
+            margin-bottom: 80px;
+        }
+
+        .seccion-etiqueta {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--azul);
+            background: rgba(59, 95, 160, 0.08);
+            border: 1px solid rgba(59, 95, 160, 0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 14px;
+        }
+
+        .seccion-titulo {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+            font-weight: 700;
+            color: var(--azul-oscuro);
+            margin-bottom: 18px;
+            line-height: 1.3;
+        }
+
+        .seccion-cuerpo {
+            font-size: 1rem;
+            color: var(--texto-suave);
+            line-height: 1.85;
+        }
+
+        .seccion-cuerpo p {
+            margin-bottom: 14px;
+        }
+
+        .seccion-cuerpo p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* CITA DESTACADA */
+        .cita {
+            background: var(--blanco);
+            border-left: 4px solid var(--dorado);
+            border-radius: 0 12px 12px 0;
+            padding: 22px 28px;
+            margin: 28px 0;
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .cita::before {
+            content: '"';
+            font-family: 'Merriweather', serif;
+            font-size: 5rem;
+            color: var(--dorado-claro);
+            position: absolute;
+            top: -10px;
+            left: 16px;
+            line-height: 1;
+            opacity: 0.5;
+        }
+
+        .cita p {
+            font-family: 'Merriweather', serif;
+            font-size: 1.05rem;
+            font-style: italic;
+            color: var(--texto);
+            line-height: 1.8;
+            padding-top: 20px;
+        }
+
+        .cita-ref {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--azul);
+            letter-spacing: 1px;
+        }
+
+        /* BIBLIA REF PILL */
+        .br {
+            display: inline-block;
+            background: var(--azul-oscuro);
+            color: var(--dorado-claro);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 9px;
+            border-radius: 4px;
+            margin: 1px;
+            font-family: 'Nunito', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        /* SEPARADOR */
+        .sep {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin: 56px 0;
+        }
+
+        .sep::before,
+        .sep::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--crema-dark);
+        }
+
+        .sep-ico {
+            width: 10px;
+            height: 10px;
+            background: var(--dorado);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* TARJETAS GRID */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .tarjeta {
+            background: var(--blanco);
+            border: 1px solid var(--crema-dark);
+            border-radius: 14px;
+            padding: 22px 20px;
+            transition: all 0.25s;
+            cursor: default;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 28px rgba(59, 95, 160, 0.12);
+            border-color: rgba(59, 95, 160, 0.2);
+        }
+
+        .tarjeta-icono {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .tarjeta-titulo {
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--azul-oscuro);
+            margin-bottom: 6px;
+        }
+
+        .tarjeta-cuerpo {
+            font-size: 13px;
+            color: var(--texto-suave);
+            line-height: 1.65;
+        }
+
+        /* TIMELINE */
+        .linea-tiempo {
+            position: relative;
+            padding-left: 36px;
+            margin: 28px 0;
+        }
+
+        .linea-tiempo::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 4px;
+            bottom: 4px;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--dorado), var(--azul-claro));
+            border-radius: 2px;
+        }
+
+        .lt-item {
+            position: relative;
+            margin-bottom: 32px;
+        }
+
+        .lt-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .lt-dot {
+            position: absolute;
+            left: -31px;
+            top: 3px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--dorado);
+            border: 3px solid var(--crema);
+            box-shadow: 0 0 0 2px var(--dorado);
+        }
+
+        .lt-dot.jesus {
+            background: var(--azul);
+            box-shadow: 0 0 0 3px var(--dorado);
+            width: 18px;
+            height: 18px;
+            left: -33px;
+            top: 1px;
+        }
+
+        .lt-fecha {
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--dorado);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 3px;
+        }
+
+        .lt-titulo {
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--azul-oscuro);
+            margin-bottom: 5px;
+        }
+
+        .lt-cuerpo {
+            font-size: 13.5px;
+            color: var(--texto-suave);
+            line-height: 1.65;
+        }
+
+        /* TEMAS ACCORDION */
+        .temas-lista {
+            margin-top: 24px;
+        }
+
+        .tema-item {
+            background: var(--blanco);
+            border: 1px solid var(--crema-dark);
+            border-radius: 14px;
+            margin-bottom: 14px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+
+        .tema-item.abierto {
+            box-shadow: 0 4px 20px rgba(59, 95, 160, 0.1);
+            border-color: rgba(59, 95, 160, 0.2);
+        }
+
+        .tema-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 18px 22px;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.2s;
+        }
+
+        .tema-header:hover {
+            background: rgba(59, 95, 160, 0.03);
+        }
+
+        .tema-num {
+            width: 36px;
+            height: 36px;
+            background: var(--azul-oscuro);
+            color: var(--dorado-claro);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .tema-item.abierto .tema-num {
+            background: var(--dorado);
+            color: var(--azul-oscuro);
+        }
+
+        .tema-nombre {
+            flex: 1;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--azul-oscuro);
+            line-height: 1.3;
+        }
+
+        .tema-chevron {
+            font-size: 18px;
+            color: var(--texto-suave);
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+
+        .tema-item.abierto .tema-chevron {
+            transform: rotate(180deg);
+            color: var(--azul);
+        }
+
+        .tema-body {
+            display: none;
+            padding: 0 22px 22px;
+        }
+
+        .tema-item.abierto .tema-body {
+            display: block;
+        }
+
+        .tema-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .tema-col-item {
+            background: var(--crema);
+            border-radius: 10px;
+            padding: 14px 16px;
+        }
+
+        .tema-col-label {
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .label-at {
+            color: var(--verde-fe);
+        }
+
+        .label-nt {
+            color: var(--azul);
+        }
+
+        .tema-col-texto {
+            font-size: 13.5px;
+            color: var(--texto-suave);
+            line-height: 1.7;
+        }
+
+        .pregunta-reflexion {
+            background: rgba(212, 168, 67, 0.08);
+            border: 1px dashed rgba(212, 168, 67, 0.4);
+            border-radius: 10px;
+            padding: 14px 18px;
+            font-size: 14px;
+            color: var(--texto);
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .pregunta-reflexion::before {
+            content: '💬 ';
+        }
+
+        /* TABLA COMPARATIVA */
+        .tabla {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            margin: 20px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .tabla th {
+            background: var(--azul-oscuro);
+            color: var(--dorado-claro);
+            font-weight: 800;
+            padding: 13px 18px;
+            text-align: left;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .tabla td {
+            padding: 12px 18px;
+            border-bottom: 1px solid var(--crema-dark);
+            color: var(--texto-suave);
+        }
+
+        .tabla tr:last-child td {
+            border-bottom: none;
+        }
+
+        .tabla tr:nth-child(even) td {
+            background: rgba(250, 248, 243, 0.8);
+        }
+
+        .tabla td:first-child {
+            color: var(--azul-oscuro);
+            font-weight: 700;
+        }
+
+        /* PROMESA BOX */
+        .promesa-wrap {
+            background: linear-gradient(135deg, var(--azul-oscuro) 0%, #2a4080 60%, var(--azul) 100%);
+            border-radius: 20px;
+            padding: 48px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin: 32px 0;
+        }
+
+        .promesa-wrap::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at top center, rgba(212, 168, 67, 0.18) 0%, transparent 65%);
+        }
+
+        .promesa-titulo {
+            font-family: 'Merriweather', serif;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--dorado);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .promesa-texto {
+            font-family: 'Merriweather', serif;
+            font-size: 1.15rem;
+            line-height: 2.2;
+            color: var(--blanco);
+            position: relative;
+            font-weight: 300;
+        }
+
+        .promesa-texto strong {
+            color: var(--dorado-claro);
+            font-weight: 700;
+        }
+
+        /* GUIA SECCIÓN */
+        .guia-bloques {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .guia-bloque {
+            background: var(--blanco);
+            border: 1px solid var(--crema-dark);
+            border-radius: 14px;
+            padding: 22px;
+        }
+
+        .guia-bloque-titulo {
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--azul-oscuro);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .guia-bloque ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .guia-bloque ul li {
+            font-size: 13.5px;
+            color: var(--texto-suave);
+            padding: 7px 0;
+            border-bottom: 1px solid var(--crema-dark);
+            line-height: 1.5;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .guia-bloque ul li::before {
+            content: '→';
+            color: var(--dorado);
+            font-weight: 800;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .guia-bloque ul li:last-child {
+            border-bottom: none;
+        }
+
+        /* RESPUESTAS DIFÍCILES */
+        .faq {
+            margin: 24px 0;
+        }
+
+        .faq-item {
+            background: var(--blanco);
+            border: 1px solid var(--crema-dark);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .faq-pregunta {
+            padding: 16px 20px;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--azul-oscuro);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            transition: background 0.2s;
+        }
+
+        .faq-pregunta:hover {
+            background: rgba(59, 95, 160, 0.03);
+        }
+
+        .faq-pregunta span {
+            font-size: 18px;
+            color: var(--texto-suave);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.open .faq-pregunta span {
+            transform: rotate(45deg);
+            color: var(--azul);
+        }
+
+        .faq-respuesta {
+            display: none;
+            padding: 0 20px 16px;
+            font-size: 13.5px;
+            color: var(--texto-suave);
+            line-height: 1.7;
+            border-top: 1px solid var(--crema-dark);
+            margin-top: 0;
+            padding-top: 14px;
+        }
+
+        .faq-item.open .faq-respuesta {
+            display: block;
+        }
+
+        /* CIERRE PASOS */
+        .pasos {
+            margin: 24px 0;
+            counter-reset: paso;
+        }
+
+        .paso {
+            display: flex;
+            gap: 18px;
+            margin-bottom: 24px;
+            align-items: flex-start;
+        }
+
+        .paso-num {
+            counter-increment: paso;
+            width: 38px;
+            height: 38px;
+            background: var(--azul-oscuro);
+            color: var(--dorado-claro);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 15px;
+            flex-shrink: 0;
+        }
+
+        .paso-contenido {
+            flex: 1;
+        }
+
+        .paso-titulo {
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--azul-oscuro);
+            margin-bottom: 4px;
+        }
+
+        .paso-texto {
+            font-size: 13.5px;
+            color: var(--texto-suave);
+            line-height: 1.65;
+        }
+
+        /* ENSEÑANZA FINAL */
+        .ensenanza {
+            background: var(--blanco);
+            border: 2px solid var(--azul-oscuro);
+            border-radius: 14px;
+            padding: 28px 32px;
+            margin: 32px 0;
+            text-align: center;
+        }
+
+        .ensenanza p {
+            font-family: 'Merriweather', serif;
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--azul-oscuro);
+            line-height: 1.8;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--azul-oscuro);
+            text-align: center;
+            padding: 40px 20px;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 13px;
+        }
+
+        footer .footer-logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 16px;
+        }
+
+        footer .footer-logos img {
+            height: 42px;
+            opacity: 0.7;
+            filter: brightness(1.3);
+        }
+
+        footer span {
+            color: var(--dorado);
+        }
+
+        /* REVEAL */
+        .reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 640px) {
+            .navbar {
+                justify-content: center;
+                padding: 0 12px;
+            }
+
+            .logo-exodo-fijo {
+                width: 42px;
+                height: 42px;
+                top: 11px;
+                left: 11px;
+            }
+
+            .tema-col {
+                grid-template-columns: 1fr;
+            }
+
+            .guia-bloques {
+                grid-template-columns: 1fr;
+            }
+
+            .promesa-wrap {
+                padding: 32px 20px;
+            }
+
+            .promesa-texto {
+                font-size: 1rem;
+            }
+
+            main {
+                padding: 40px 16px 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- LOGO MOVIMIENTO ÉXODO - ESQUINA FIJA -->
+    <div class="logo-exodo-fijo" title="Movimiento Éxodo">
+        <img src="data:image/png;base64,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"
+            alt="Logo Movimiento Éxodo">
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-links">
+            <a class="nav-link" href="#dios">¿Quién es Dios?</a>
+            <a class="nav-link" href="#biblia">La Biblia</a>
+            <a class="nav-link" href="#historia">Historia</a>
+            <a class="nav-link" href="#temas">7 Temas</a>
+            <a class="nav-link" href="#promesa">Promesa</a>
+            <a class="nav-link" href="#guia">Guía</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-lolek">
+            <img src="data:image/png;base64,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"
+                alt="Éxodo Lolek">
+        </div>
+        <div class="hero-badge">Movimiento Éxodo · Curso de Iniciados</div>
+        <h1>Valor <em>Religioso</em></h1>
+        <div class="hero-linea"></div>
+        <p class="hero-sub">Un camino de fe, libertad y comunidad. Porque Dios no es una doctrina — es Alguien que
+            camina contigo.</p>
+        <div class="scroll-hint">Desliza</div>
+    </section>
+
+    <!-- MAIN -->
+    <main>
+
+        <!-- SECCIÓN: QUIÉN ES DIOS -->
+        <section class="seccion reveal" id="dios">
+            <span class="seccion-etiqueta">Punto de partida</span>
+            <h2 class="seccion-titulo">Antes de todo: ¿Quién es Dios?</h2>
+            <div class="seccion-cuerpo">
+                <p>Cuando hablamos de Dios en el Movimiento Éxodo, no estamos hablando de un conjunto de reglas o de una
+                    lista de obligaciones. Estamos hablando de una <strong>Persona</strong>.</p>
+                <p>No es una cosa, una doctrina, unas normas, unas tradiciones... Para nosotros es Aquel con quien
+                    podemos relacionarnos en lo individual y comunitariamente — quien es referente y sentido de nuestra
+                    existencia personal, eclesial y social.</p>
+            </div>
+            <div class="cita">
+                <p>Es el Dios revelado progresivamente en la historia de Israel y que alcanza su plenitud en Jesús, el
+                    Cristo.</p>
+                <span class="cita-ref">— Curso de Iniciados, Cap. 8</span>
+            </div>
+            <div class="seccion-cuerpo">
+                <p>La Iglesia, comunidad de los seguidores de Jesucristo, está llamada a testimoniar su presencia. Y la
+                    Biblia — Palabra de Dios — es nuestro referente desde que Él nos la reveló. La Biblia no es un libro
+                    del pasado; es viva, habla hoy.</p>
+                <p>El proyecto de Dios para su pueblo es que <strong>caminemos hacia la madurez</strong> en todas las
+                    partes que integran la persona, integrándolas en el eje de la fe, de la esperanza y del amor.</p>
+            </div>
+        </section>
+
+        <div class="sep">
+            <div class="sep-ico"></div>
+        </div>
+
+        <!-- SECCIÓN: LA BIBLIA -->
+        <section class="seccion reveal" id="biblia">
+            <span class="seccion-etiqueta">Antes que nada</span>
+            <h2 class="seccion-titulo">La Biblia: La carta de amor de Dios</h2>
+            <div class="seccion-cuerpo">
+                <p>La Biblia es la carta de amor que Dios nos ha enviado por medio de los escritores sagrados. En ella
+                    nos manifiesta su voluntad. Conviene que la leamos con fe, cariño y constancia — para eso
+                    necesitamos estar familiarizados con este hermoso libro.</p>
+            </div>
+
+            <div class="grid-3">
+                <div class="tarjeta">
+                    <span class="tarjeta-icono">📖</span>
+                    <div class="tarjeta-titulo">72 Libros</div>
+                    <div class="tarjeta-cuerpo">46 en el Antiguo Testamento y 27 en el Nuevo Testamento. Cada uno tiene
+                        su propia historia y mensaje.</div>
+                </div>
+                <div class="tarjeta">
+                    <span class="tarjeta-icono">📑</span>
+                    <div class="tarjeta-titulo">Capítulos</div>
+                    <div class="tarjeta-cuerpo">Cada libro está dividido en capítulos para facilitar la lectura y la
+                        búsqueda de textos.</div>
+                </div>
+                <div class="tarjeta">
+                    <span class="tarjeta-icono">🔢</span>
+                    <div class="tarjeta-titulo">Versículos</div>
+                    <div class="tarjeta-cuerpo">Cada capítulo se divide en versículos: pequeñas frases numeradas que
+                        identifican cada parte del texto.</div>
+                </div>
+            </div>
+
+            <div class="cita">
+                <p>¿Cómo leer una cita bíblica? Una "cita bíblica" consta de: el nombre del libro, el número del
+                    capítulo, y el número de los versículos.</p>
+            </div>
+
+            <div class="seccion-cuerpo">
+                <p><strong>Ejemplo:</strong> <span class="br">Jn 14, 6</span> = Evangelio de Juan · Capítulo 14 ·
+                    Versículo 6.</p>
+                <p><span class="br">Ex 3, 7-10</span> = Éxodo · Cap. 3 · Versículos del 7 al 10 (el guión = "del...
+                    al").</p>
+                <p><span class="br">Gn 2, 4-7.18-22</span> = Génesis · Cap. 2 · Vs. 4 al 7 <em>y</em> 18 al 22 (el punto
+                    = "y", versículos no seguidos).</p>
+                <p>La coma separa capítulos de versículos. El guión indica un rango continuo. El punto indica versículos
+                    que se saltan.</p>
+            </div>
+        </section>
+
+        <div class="sep">
+            <div class="sep-ico"></div>
+        </div>
+
+        <!-- SECCIÓN: HISTORIA BÍBLICA -->
+        <section class="seccion reveal" id="historia">
+            <span class="seccion-etiqueta">Cuadro de la historia bíblica</span>
+            <h2 class="seccion-titulo">El camino de Dios con su pueblo</h2>
+            <div class="seccion-cuerpo">
+                <p>Esta no es una historia de fantasía. Es la historia real de cómo Dios fue caminando con su pueblo a
+                    lo largo de los siglos — con sus alegrías, sus fracasos, sus dudas — hasta llegar a Jesús.</p>
+            </div>
+
+            <div class="linea-tiempo" style="margin-top: 32px;">
+                <div class="lt-item">
+                    <div class="lt-dot"></div>
+                    <div class="lt-fecha">~1900 a.C.</div>
+                    <div class="lt-titulo">Los Patriarcas</div>
+                    <div class="lt-cuerpo">Abraham, Isaac, Jacob y José. Dios hace una promesa: "Seré tu Dios y tú serás
+                        mi pueblo." Todo comienza con una alianza de amor.</div>
+                </div>
+                <div class="lt-item">
+                    <div class="lt-dot"></div>
+                    <div class="lt-fecha">~1600 a.C.</div>
+                    <div class="lt-titulo">Esclavitud en Egipto</div>
+                    <div class="lt-cuerpo">El pueblo de Israel vive en esclavitud bajo el faraón. Trabajan, sufren,
+                        lloran. Pero Dios no está dormido — está escuchando.</div>
+                </div>
+                <div class="lt-item">
+                    <div class="lt-dot"></div>
+                    <div class="lt-fecha">~1250 a.C.</div>
+                    <div class="lt-titulo">Moisés y el Éxodo</div>
+                    <div class="lt-cuerpo">Dios llama a Moisés — un hombre inseguro, con miedo — y lo envía a liberar a
+                        su pueblo. El Libro del Éxodo es el corazón del Antiguo Testamento: narra la gran liberación.
+                    </div>
+                </div>
+                <div class="lt-item">
+                    <div class="lt-dot"></div>
+                    <div class="lt-fecha">~1210–900 a.C.</div>
+                    <div class="lt-titulo">Jueces y Reyes</div>
+                    <div class="lt-cuerpo">El pueblo se organiza en la tierra prometida. Hay victorias, reyes, pero
+                        también infidelidades. Dios sigue fiel, aunque ellos fallen.</div>
+                </div>
+                <div class="lt-item">
+                    <div class="lt-dot"></div>
+                    <div class="lt-fecha">586 a.C.</div>
+                    <div class="lt-titulo">El Exilio</div>
+                    <div class="lt-cuerpo">El pueblo es deportado a Babilonia. Otro desierto. Otra prueba. Y Dios,
+                        nuevamente, no los abandona.</div>
+                </div>
+                <div class="lt-item">
+                    <div class="lt-dot jesus"></div>
+                    <div class="lt-fecha" style="color: var(--azul);">Años 30–31 d.C.</div>
+                    <div class="lt-titulo" style="color: var(--azul); font-size: 1.1rem;">JESÚS — La plenitud</div>
+                    <div class="lt-cuerpo">Todo lo del Éxodo se cumple en Él. No vino a abolir la historia de Israel,
+                        sino a darle su sentido pleno. Él es el camino, la verdad y la vida. <span class="br">Jn 14,
+                            6</span></div>
+                </div>
+                <div class="lt-item">
+                    <div class="lt-dot"></div>
+                    <div class="lt-fecha">64–68 d.C.</div>
+                    <div class="lt-titulo">Las primeras comunidades</div>
+                    <div class="lt-cuerpo">Pentecostés, las primeras comunidades cristianas, el martirio de Pedro y
+                        Pablo. La fe se extiende por el mundo.</div>
+                </div>
+            </div>
+
+            <div class="cita" style="margin-top: 32px;">
+                <p>El Movimiento Éxodo ha tomado para sí el nombre y la mística del segundo de los libros del Antiguo
+                    Testamento. ¿Por qué? Porque en este grupo queremos aprender a vivir nuestra vida guiados por Dios,
+                    como relata este libro.</p>
+                <span class="cita-ref">— Introducción al Valor Religioso, Cap. 8.3</span>
+            </div>
+        </section>
+
+        <div class="sep">
+            <div class="sep-ico"></div>
+        </div>
+
+        <!-- SECCIÓN: 7 TEMAS -->
+        <section class="seccion reveal" id="temas">
+            <span class="seccion-etiqueta">Núcleo del Valor Religioso</span>
+            <h2 class="seccion-titulo">Los 7 grandes temas del Éxodo</h2>
+            <div class="seccion-cuerpo">
+                <p>El material del Valor Religioso se desarrolla en <strong>siete temas</strong> que conectan la
+                    historia bíblica de Israel con nuestra vida de hoy. Cada uno tiene su paralelo en el Antiguo
+                    Testamento (AT) y en el Nuevo Testamento (NT). Toca cada tema para expandirlo.</p>
+            </div>
+
+            <div class="temas-lista" style="margin-top: 28px;">
+
+                <!-- TEMA I -->
+                <div class="tema-item abierto">
+                    <div class="tema-header" onclick="toggleTema(this)">
+                        <div class="tema-num">I</div>
+                        <div class="tema-nombre">Dios toma la iniciativa para encontrar a su pueblo</div>
+                        <div class="tema-chevron">▾</div>
+                    </div>
+                    <div class="tema-body">
+                        <div class="tema-col">
+                            <div class="tema-col-item">
+                                <div class="tema-col-label label-at">Antiguo Testamento</div>
+                                <div class="tema-col-texto">Dios ve el sufrimiento de Israel en Egipto, escucha su
+                                    clamor y envía a Moisés. No espera que lo busquen — Él da el primer paso. <span
+                                        class="br">Ex 3, 7-10</span> · <span class="br">Ex 2, 23-3, 11</span></div>
+                            </div>
+                            <div class="tema-col-item">
+                                <div class="tema-col-label label-nt">Nuevo Testamento</div>
+                                <div class="tema-col-texto">Jesús toma la iniciativa de hacerse cercano. "Yo soy el
+                                    camino, la verdad y la vida." No obliga, invita. <span class="br">Jn 14, 6</span> ·
+                                    <span class="br">Fil 2, 5-7</span> · <span class="br">Lc 2, 1-19</span></div>
+                            </div>
+                        </div>
+                        <div class="pregunta-reflexion">¿En qué momento de tu vida has sentido que algo o alguien se
+                            acercó a ti sin que lo esperaras?</div>
+                    </div>
+                </div>
+
+                <!-- TEMA II -->
+                <div class="tema-item">
+                    <div class="tema-header" onclick="toggleTema(this)">
+                        <div class="tema-num">II</div>
+                        <div class="tema-nombre">Dios llama a su pueblo a vivir la libertad y ser feliz</div>
+                        <div class="tema-chevron">▾</div>
+                    </div>
+                    <div class="tema-body">
+                        <div class="tema-col">
+                            <div class="tema-col-item">
+                                <div class="tema-col-label label-at">Antiguo Testamento</div>
+                                <div class="tema-col-texto">Dios mira con tristeza la esclavitud en que viven sus hijos
+                                    y les propone salir. Los invita a una tierra donde lo bueno abunda y Él estará
+                                    cerca. La respuesta que encontramos en el Libro del Éxodo: ¡Para que le rindan
+                                    culto! <span class="br">Ex 3, 13-15</span></div>
+                            </div>
+                            <div class="tema-col-item">
+                                <div class="tema-col-label label-nt">Nuevo Testamento</div>
+                                <div class="tema-col-texto">Jesús nos llama a una vida plena, no a una carga. "La
+                                    invitación de Jesús es para la felicidad." Él llama a personas imperfectas y les
+                                    ofrece su amistad. <span class="br">Mc 2, 13-17</span></div>
+                            </div>
+                        </div>
+                        <div class="pregunta-reflexion">¿Hay algo en tu vida que sabes que no te hace bien, pero que te
+                            cuesta mucho soltar?</div>
+                    </div>
+                </div>
+
+                <!-- TEMA III -->
+                <div class="tema-item">
+                    <div class="tema-header" onclick="toggleTema(this)">
+                        <div class="tema-num">III</div>
+                        <div class="tema-nombre">Dios escoge jefes: personas comprometidas para guiar a su pueblo</div>
+                        <div class="tema-chevron">▾</div>
+                    </div>
+                    <div class="tema-body">
+                        <div class="tema-col">
+                            <div class="tema-col-item">
+                                <div class="tema-col-label label-at">Antiguo Testamento</div>
+                                <div class="tema-col-texto">Dios pide a Moisés que sea el guía, el jefe de su pueblo.
+                                    Moisés se reconoce limitado, siente miedo, pero como es Dios quien lo llama, se
+                                    confía y trata de serle fiel. <span class="br">Ex 6, 2-8</span> · <span
+                                        class="br">Dt 1, 9-15</span></div>
+                            </div>
+                            <div class="tema-col-item">
+                                <div class="tema-col-label label-nt">Nuevo Testamento</div>
+                                <div class="tema-col-texto">Jesús busca colaboradores. Los llamó porque quiso, luego les
+                                    dijo: "Quien sea el mayor, sea el más pequeño... sea quien sirva a los demás." <span
+                                        class="br">Mt 20, 26</span></div>
+                            </div>
+                        </div>
+                        <div class="pregunta-reflexion">¿Alguna vez has sentido la invitación de ayudar a alguien y lo
+                            has hecho, aunque te sentías insuficiente?</div>
+                    </div>
+                </div>
+
+                <!-- TEMA IV -->
+                <div class="tema-item">
+                    <div class="tema-header" onclick="toggleTema(this)">
+                        <div class="tema-num">IV</div>
+                        <div class="tema-nombre">El pueblo sale en busca de la libertad</div>
+                        <div class="tema-chevron">▾</div>
+                    </div>
+                    <div class="tema-body">
+                        <div class="tema-col">
+                            <div class="tema-col-item">
+                                <div class="tema-col-label label-at">Antiguo Testamento</div>
+                                <div class="tema-col-texto">El pueblo deja atrás las seguridades de Egipto y se lanza al
+                                    desierto. Se arriesga, deja atrás lo conocido. Camina apoyado solo en la confianza
+                                    que pone en Dios. <span class="br">Ex 12, 37-42</span></div>
+                            </div>
+                            <div class="tema-col-item">
+                                <div class="tema-col-label label-nt">Nuevo Testamento</div>
+                                <div class="tema-col-texto">La gente buscaba a Jesús. Algunos por curiosidad, otros por
+                                    convicción. El Evangelio nos narra que la gente lo buscaba y también hoy, mucha
+                                    gente lo busca. ¿Tú cómo lo buscas?</div>
+                            </div>
+                        </div>
+                        <div class="pregunta-reflexion">¿Qué significa para ti dar el primer paso hacia algo nuevo que
+                            vale la pena?</div>
+                    </div>
+                </div>
+
+                <!-- TEMA V -->
+                <div class="tema-item">
+                    <div class="tema-header" onclick="toggleTema(this)">
+                        <div class="tema-num">V</div>
+                        <div class="tema-nombre">Dificultades en el caminar</div>
+                        <div class="tema-chevron">▾</div>
+                    </div>
+                    <div class="tema-body">
+                        <div class="tema-col">
+                            <div class="tema-col-item">
+                                <div class="tema-col-label label-at">Antiguo Testamento</div>
+                                <div class="tema-col-texto">El desierto resulta áspero y difícil. Por ilógico que
+                                    parezca, el pueblo añora su pasado — aunque entonces eran esclavos. La tentación de
+                                    volver atrás siempre existe. <span class="br">Ex 14, 11-12</span></div>
+                            </div>
+                            <div class="tema-col-item">
+                                <div class="tema-col-label label-nt">Nuevo Testamento</div>
+                                <div class="tema-col-texto">Cristo Jesús conoce nuestra naturaleza humana. Siendo
+                                    verdadero hombre, conoce como somos. Siendo verdadero Dios, es capaz de señalarnos
+                                    el mejor camino. Por eso le llamamos nuestro Pastor. <span class="br">Jn 10,
+                                        1-5</span></div>
+                            </div>
+                        </div>
+                        <div class="pregunta-reflexion">Ser libre es usar la facultad de hacer el bien. La fatiga, el
+                            desánimo y el egoísmo pueden venir — pero el que es libre seguirá comprometido fielmente
+                            para hacer el bien. ¿Qué piensas de esto?</div>
+                    </div>
+                </div>
+
+                <!-- TEMA VI -->
+                <div class="tema-item">
+                    <div class="tema-header" onclick="toggleTema(this)">
+                        <div class="tema-num">VI</div>
+                        <div class="tema-nombre">Dios no abandona nunca a su pueblo</div>
+                        <div class="tema-chevron">▾</div>
+                    </div>
+                    <div class="tema-body">
+                        <div class="tema-col">
+                            <div class="tema-col-item">
+                                <div class="tema-col-label label-at">Antiguo Testamento</div>
+                                <div class="tema-col-texto">El pueblo cayó en la duda y en la queja contra Dios. En
+                                    muchas ocasiones fue infiel. Pero a pesar de todo, Dios no abandona a sus hijos, ni
+                                    traiciona su alianza. Las pruebas nunca serán mayores que las propias fuerzas. <span
+                                        class="br">Ex 16, 1-35</span> · <span class="br">Ex 31, 18</span></div>
+                            </div>
+                            <div class="tema-col-item">
+                                <div class="tema-col-label label-nt">Nuevo Testamento</div>
+                                <div class="tema-col-texto">Jesús cumplió su misión plenamente. Por su muerte y
+                                    resurrección nos ha salvado. Cuando parecía que iba a abandonar a sus amigos, no lo
+                                    hizo. Nos invita a alcanzar la libertad — pero no quiere que lleguemos solos. <span
+                                        class="br">Mt 28, 16-20</span></div>
+                            </div>
+                        </div>
+                        <div class="pregunta-reflexion">¿Crees que Dios nos pide demasiado? El pueblo pudo contemplar
+                            muchas veces que Dios le estaba cerca... siempre. Tú no lo olvides nunca.</div>
+                    </div>
+                </div>
+
+                <!-- TEMA VII -->
+                <div class="tema-item">
+                    <div class="tema-header" onclick="toggleTema(this)">
+                        <div class="tema-num">VII</div>
+                        <div class="tema-nombre">Dios entrega a su pueblo el secreto de la libertad</div>
+                        <div class="tema-chevron">▾</div>
+                    </div>
+                    <div class="tema-body">
+                        <div class="tema-col">
+                            <div class="tema-col-item">
+                                <div class="tema-col-label label-at">Antiguo Testamento</div>
+                                <div class="tema-col-texto">Los 10 Mandamientos son el mensaje, la herramienta que Dios
+                                    entregó al pueblo recién liberado para continuar su marcha hacia la plena libertad.
+                                    Dios "escuchó el clamor" de su pueblo y para cada angustia descubrió una causa; para
+                                    cada causa hizo una ley. <span class="br">Ex 20, 1-21</span></div>
+                            </div>
+                            <div class="tema-col-item">
+                                <div class="tema-col-label label-nt">Nuevo Testamento</div>
+                                <div class="tema-col-texto">Jesús enseñaba el camino de la verdadera felicidad: el
+                                    camino del Reino. En una breve lectura se concentra toda su enseñanza. Síguelo y
+                                    vivirás. <span class="br">Lc 10, 25-28</span> · <span class="br">Mt 5, 1-14</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pregunta-reflexion">Un secreto es algo escondido o muy olvidado. ¿Qué crees que es
+                            ese secreto que Jesús vino a revelarnos?</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <div class="sep">
+            <div class="sep-ico"></div>
+        </div>
+
+        <!-- SECCIÓN: PROMESA -->
+        <section class="seccion reveal" id="promesa">
+            <span class="seccion-etiqueta">Al terminar el curso</span>
+            <h2 class="seccion-titulo">La Promesa de Iniciados</h2>
+            <div class="seccion-cuerpo">
+                <p>Estás terminando tu Curso de Iniciados. Ya puedes estar muy alegre y con plena satisfacción por tu
+                    esfuerzo realizado. Para dar fin a tu preparación, es indispensable tocar el punto de tu
+                    identificación con el grupo.</p>
+                <p>Con esta promesa te integras a la gran familia Éxodo. Apréndela de memoria — la harás dentro de una
+                    ceremonia, donde se te entrega la insignia de tu Grupo Éxodo.</p>
+            </div>
+
+            <div class="promesa-wrap">
+                <div class="promesa-titulo">Promesa de Iniciados</div>
+                <div class="promesa-texto">
+                    <strong>Señor:</strong><br>
+                    hoy prometo servir a mis compañeros,<br>
+                    luchar por los colores de mi Tribu,<br>
+                    ser generoso, sacrificado y alegre;<br>
+                    <strong>constructor de tu Reino</strong><br>
+                    y creador de libertad.
+                </div>
+            </div>
+
+            <div class="cita" style="margin-top: 28px;">
+                <p>Que la Palabra de Cristo habite en ustedes con toda su riqueza. Que sepan aconsejarse mutuamente con
+                    palabras y consejos sabios. Con el corazón agradecido canten a Dios salmos, himnos y alabanzas
+                    espontáneas. Y todo lo que puedan decir o hacer, háganlo en el Nombre del Sr. Jesús, dando gracias a
+                    Dios Padre por medio de él.</p>
+                <span class="cita-ref">— Col 3, 16-17 · Lectura de la Ceremonia de Iniciados</span>
+            </div>
+        </section>
+
+        <div class="sep">
+            <div class="sep-ico"></div>
+        </div>
+
+        <!-- SECCIÓN: GUÍA PARA COMPARTIR -->
+        <section class="seccion reveal" id="guia">
+            <span class="seccion-etiqueta">Para quien comparte el tema</span>
+            <h2 class="seccion-titulo">Cómo guiar la sesión</h2>
+            <div class="seccion-cuerpo">
+                <p>Lo más importante no es que lo expliques perfecto. Lo más importante es que se note que <strong>tú lo
+                        vives y te importa</strong>. La gente no recuerda tanto lo que dijiste, sino cómo la hiciste
+                    sentir.</p>
+            </div>
+
+            <div class="guia-bloques">
+                <div class="guia-bloque">
+                    <div class="guia-bloque-titulo">🌱 Si no conoce a Dios</div>
+                    <ul>
+                        <li>Pregúntale: ¿Para ti, quién es Dios? ¿Cómo lo imaginas?</li>
+                        <li>Introduce la idea de que Dios es una Persona, no una regla.</li>
+                        <li>Cuéntale la historia del Éxodo como un relato vivo y cercano.</li>
+                        <li>Conecta la historia con algo de su vida real.</li>
+                        <li>No intentes explicar todo — que se lleve una sola idea con fuerza.</li>
+                    </ul>
+                </div>
+                <div class="guia-bloque">
+                    <div class="guia-bloque-titulo">✨ Si ya conoce a Dios</div>
+                    <ul>
+                        <li>Dile: "Éxodo no reemplaza lo que ya tienes — lo complementa."</li>
+                        <li>Pregúntale cómo vive su fe normalmente.</li>
+                        <li>Invítala a reflexionar si la vive en comunidad o en soledad.</li>
+                        <li>Muéstrale que Israel ya creía en Dios antes del Éxodo.</li>
+                        <li>Lo que cambió fue caminar juntos, en comunidad, con un propósito.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3
+                style="font-family:'Merriweather',serif; font-size:1.1rem; color:var(--azul-oscuro); margin: 32px 0 14px;">
+                ¿Qué añade Éxodo a quien ya cree?</h3>
+            <table class="tabla">
+                <thead>
+                    <tr>
+                        <th>Lo que ya tenía</th>
+                        <th>Lo que Éxodo añade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Fe personal</td>
+                        <td>Fe comunitaria y compartida</td>
+                    </tr>
+                    <tr>
+                        <td>Conocer a Dios</td>
+                        <td>Caminar con Dios en grupo</td>
+                    </tr>
+                    <tr>
+                        <td>Creer</td>
+                        <td>Comprometerse con una misión</td>
+                    </tr>
+                    <tr>
+                        <td>Rezar solo/a</td>
+                        <td>Crecer, servir y dar con otros</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3
+                style="font-family:'Merriweather',serif; font-size:1.1rem; color:var(--azul-oscuro); margin: 36px 0 14px;">
+                Preguntas difíciles — y cómo responderlas</h3>
+            <div class="faq">
+
+                <div class="faq-item">
+                    <div class="faq-pregunta" onclick="toggleFaq(this)">
+                        ¿Por qué necesito un grupo para vivir mi fe?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-respuesta">Nadie te obliga. Pero piénsalo así: puedes aprender a nadar solo leyendo
+                        libros — o que alguien te acompañe en el agua. El grupo no reemplaza tu fe personal, la
+                        potencia. Israel en el desierto no hubiera llegado a ningún lado sin caminar juntos.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-pregunta" onclick="toggleFaq(this)">
+                        ¿Éxodo es como una secta?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-respuesta">Para nada. Éxodo es un movimiento dentro de la Iglesia Católica,
+                        reconocido y guiado por ella. No te aísla de tu familia ni te obliga a nada. Al contrario, te
+                        invita a ser mejor persona en todos los ámbitos: familia, amigos, escuela, trabajo.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-pregunta" onclick="toggleFaq(this)">
+                        Yo ya tengo mi relación con Dios, ¿para qué necesito esto?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-respuesta">Eso es lo mejor que me puedes decir, de verdad. Y precisamente porque ya
+                        tienes esa base, Éxodo puede darte algo más: un espacio donde esa fe crece, se comparte y se
+                        pone en acción. No es competencia, es complemento.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-pregunta" onclick="toggleFaq(this)">
+                        ¿Y si entro y luego no me gusta?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-respuesta">Absolutamente nada. Dios no obliga, Éxodo tampoco. La invitación es
+                        libre. Lo único que te pido es que le des una oportunidad honesta antes de decidir. A veces lo
+                        que más nos transforma es justo lo que al principio nos da flojera o miedo.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-pregunta" onclick="toggleFaq(this)">
+                        ¿Y si no entiendo la Biblia?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-respuesta">Nadie la entiende sola al principio — y eso está bien. La Biblia no es un
+                        examen. Es una conversación. En Éxodo la vas leyendo poco a poco, con otros, y se va haciendo
+                        más clara. No necesitas ser experto/a para empezar.</div>
+                </div>
+
+            </div>
+
+
+
+            <div class="ensenanza">
+                <p>"Conocer a Dios no es solo saber que existe.<br>Es caminar con Él, en comunidad, hacia la libertad."
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logos">
+            <img src="data:image/png;base64,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"
+                alt="Movimiento Éxodo">
+            <img src="data:image/png;base64,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"
+                alt="Éxodo Lolek">
+        </div>
+        <p>Movimiento <span>Éxodo</span> · <span>Éxodo Lolek</span> · Valor Religioso · Curso de Iniciados ·
+            <br>
+            <span>Impartido por: <b>Montaño</b></span>
+        </p>
+    </footer>
+
+    <script>
+        // Toggle temas accordion
+        function toggleTema(header) {
+            const item = header.closest('.tema-item');
+            const isOpen = item.classList.contains('abierto');
+            document.querySelectorAll('.tema-item').forEach(i => i.classList.remove('abierto'));
+            if (!isOpen) item.classList.add('abierto');
+        }
+
+        // Toggle FAQ
+        function toggleFaq(header) {
+            const item = header.closest('.faq-item');
+            item.classList.toggle('open');
+        }
+
+        // Scroll reveal
+        const revealEls = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    observer.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.07 });
+        revealEls.forEach(el => observer.observe(el));
+
+        // Smooth scroll nav
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                const t = document.querySelector(a.getAttribute('href'));
+                if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+</body>
+
+</html>
